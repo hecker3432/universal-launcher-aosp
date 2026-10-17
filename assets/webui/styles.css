@@ -1,0 +1,500 @@
+@viewport {
+    width: device-width ;
+    zoom: 1.0 ;
+}
+
+body {
+    font-family: Roboto, Verdana, sans-serif
+}
+
+h1 {
+    text-align: center;
+}
+
+.copyright {
+    position: fixed;
+    z-index: 999;
+    right: 0;
+    bottom: 0;
+    background: rgba(255,255,255,0.75);
+    padding: 5px;
+    font-family: Roboto, Verdana, sans-serif;
+    font-size: 10pt;
+}
+
+.watchlist-container {
+    padding: 1rem;
+}
+
+.watch_card {
+    box-shadow: 0px 2px 10px #555;
+    background-color: white;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.watch_card_title {
+    font-size: 14pt;
+    padding: .5rem;
+    text-align: center;
+    overflow: scroll;
+}
+
+.watch_card_thumbnail {
+    width: 128pt;
+    height: 128pt;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.watch_card_spacer {
+    flex-grow: 1;
+}
+
+.watch_card_button {
+    display: block;
+    background-color: tomato;
+    padding: 10px 20px;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    transition: .3s ease-out;
+    margin: 10px 10px;
+}
+
+.watch_card_button_green {
+    display: block;
+    background-color: darkseagreen;
+    padding: 10px 20px;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    transition: .3s ease-out;
+    margin: 10px 10px;
+}
+
+.watch_panel {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 5%;
+    background: whitesmoke;
+    width: 90%;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0px 10px 20px #555;
+}
+
+.watch_card_full_image {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.watch_card_title_row {
+    display: block;
+    width: 100%;
+}
+
+.watch_card_title2 {
+    font-size: 14pt;
+    padding: .5rem;
+    text-align: center;
+    overflow: scroll;
+    float: center;
+}
+
+.watch_card_close {
+    display: block;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    background: #f00;
+    padding: 10px;
+    border-radius: 5px 0px 5px 5px;
+    color: #fff;
+    font-weight: bolder;
+}
+
+.watch_card_button_row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+    padding: 1px;
+}
+
+.watch_card_button_row_3 {
+    display: grid;
+    grid-template-columns: 33% 34% 33%;
+    width: 100%;
+}
+
+.watch_card_button_element_red {
+    display: inline-block;
+    background-color: #ff6347;
+    padding: 4px 2px;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    transition: .3s ease-out;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 14px;
+    cursor: pointer;
+    border: none;
+    flex: 1;
+    max-width: 90px;
+}
+
+.watch_card_button_element_red:hover {
+    background-color: #ff4500;
+}
+
+.watch_card_button_element_green {
+    display: inline-block;
+    background-color: #4CAF50;
+    padding: 4px 2px;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    transition: .3s ease-out;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 14px;
+    cursor: pointer;
+    border: none;
+    flex: 1;
+    max-width: 90px;
+}
+
+.watch_card_button_element_green:hover {
+    background-color: #45a049;
+}
+
+.box {
+    background-color: #f5f5f5;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    border-radius: 8px;
+    margin: 20px auto;
+    max-width: 600px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.box_input {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 15px;
+    width: 100%;
+}
+
+.box_input #loadFile {
+    background-color: #2196F3;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.box_input #loadFile:hover {
+    background-color: #0b7dda;
+}
+
+.box_input #fileText {
+    margin-top: 10px;
+    text-align: center;
+    color: #666;
+}
+
+.box_button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.box_button button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.box_button button:hover {
+    background-color: #45a049;
+}
+
+.message {
+    background: yellowgreen;
+    color: black;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    border-style: dashed;
+    border-radius: 5px;
+    margin: 20px;
+    border-color: #555;
+    padding: 10px;
+}
+
+.error_message {
+    background: #f44;
+    color: black;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    border-style: dashed;
+    border-radius: 5px;
+    margin: 20px;
+    border-color: #555;
+    padding: 10px;
+}
+
+/* Folder Management UI */
+.folder-controls {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 20px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: .3s ease-out;
+    text-decoration: none;
+    color: white;
+}
+
+.btn-primary {
+    background-color: #4CAF50;
+}
+
+.btn-primary:hover {
+    background-color: #45a049;
+}
+
+.btn-secondary {
+    background-color: #2196F3;
+}
+
+.btn-secondary:hover {
+    background-color: #0b7dda;
+}
+
+.btn-warning {
+    background-color: #ff9800;
+}
+
+.btn-warning:hover {
+    background-color: #e68900;
+}
+
+.btn-danger {
+    background-color: tomato;
+}
+
+.btn-danger:hover {
+    background-color: #ff4500;
+}
+
+.btn-small {
+    padding: 5px 10px;
+    font-size: 12px;
+}
+
+/* Modal Dialog */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.6);
+}
+
+.modal.active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    padding: 20px;
+    border: 1px solid #888;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+
+.modal-large {
+    max-width: 600px;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.modal-title {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.modal-close {
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    line-height: 20px;
+}
+
+.modal-close:hover {
+    color: #000;
+}
+
+.modal-body {
+    margin-bottom: 15px;
+}
+
+.modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.modal-footer-column {
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.btn-full {
+    width: 100%;
+}
+
+.watch-detail-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.watch-detail-image img {
+    max-width: 100%;
+    max-height: 400px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+.form-select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+/* Watch Card Extended Buttons */
+.watch_card_button_row_4 {
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    width: 100%;
+}
+
+.watch_card_button_row_5 {
+    display: grid;
+    grid-template-columns: 20% 20% 20% 20% 20%;
+    width: 100%;
+}
+
+.watch_card_button_element_blue {
+    display: block;
+    background-color: #2196F3;
+    padding: 10px 20px;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    transition: .3s ease-out;
+    margin: 10px 10px;
+    cursor: pointer;
+}
+
+.watch_card_button_element_orange {
+    display: block;
+    background-color: #ff9800;
+    padding: 10px 20px;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    transition: .3s ease-out;
+    margin: 10px 10px;
+    cursor: pointer;
+}
+
+
+.folder-banner {
+    width: 100%;
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    font-size: 1.2em;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.folder-content {
+    display: grid;
+    padding: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(200px,0.2fr));
+    grid-gap: 20px;
+    justify-content: center;
+}
+

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:gravity="center" android:layout_width="60.0dip" android:layout_height="80.0dip" android:layout_centerInParent="true"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:gravity="center" android:id="@id/item_image" android:layout_width="50.0dip" android:layout_height="50.0dip" android:layout_centerInParent="true" />
+</RelativeLayout>

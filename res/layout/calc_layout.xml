@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@id/Background" android:background="@drawable/background_1" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_weight="0.7"
+      xmlns:android="http://schemas.android.com/apk/res/android" />
+    <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:baselineAligned="false" android:layout_weight="1.0" android:textAlignment="center"
+      xmlns:android="http://schemas.android.com/apk/res/android">
+        <TextView android:textSize="25.0sp" android:textColor="@android:color/black" android:gravity="center|top" android:layout_gravity="center|top" android:id="@id/EditTextRecap" android:layout_width="fill_parent" android:layout_height="wrap_content" android:textAlignment="center" />
+        <TextView android:textSize="25.0sp" android:textColor="@android:color/black" android:gravity="center_horizontal" android:layout_gravity="center|top" android:id="@id/EditText01" android:clickable="false" android:layout_width="fill_parent" android:layout_height="wrap_content" android:textAlignment="center" />
+    </LinearLayout>
+    <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_weight="1.3"
+      xmlns:android="http://schemas.android.com/apk/res/android" />
+</LinearLayout>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/app_layout_matrix" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <GridView android:gravity="center" android:id="@id/app_matrix_view" android:paddingLeft="35.0dip" android:paddingTop="40.0dip" android:paddingRight="35.0dip" android:paddingBottom="40.0dip" android:scrollbars="none" android:clipToPadding="false" android:layout_width="fill_parent" android:layout_height="fill_parent" android:numColumns="2" android:layout_centerInParent="true"
+      xmlns:android="http://schemas.android.com/apk/res/android" />
+    <com.ricktop.ClockSkinCoco.CircleScroller android:id="@id/circlescoller" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+</RelativeLayout>

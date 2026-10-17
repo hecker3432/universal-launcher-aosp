@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/zzz_waterfall_layout" android:layout_width="fill_parent"
+    android:layout_height="fill_parent" android:clipChildren="false"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <androidx.recyclerview.widget.RecyclerView android:gravity="center"
+        android:id="@id/zzz_waterfall_view"
+        android:paddingTop="50dip"
+        android:paddingBottom="50dip"
+        android:scrollbars="none"
+        android:clipToPadding="false"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_centerInParent="true"
+        android:clipChildren="false" />
+
+    <com.ricktop.ClockSkinCoco.CircleScroller 
+        android:id="@+id/zzzz_waterfall_circlescoller"
+        android:layout_width="wrap_content" 
+        android:layout_height="wrap_content" />
+
+</RelativeLayout>

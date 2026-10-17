@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@id/card_background"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:theme="@style/Theme.AppCompat">
+
+    <com.ricktop.ClockSkinCoco.NotificationScrollView
+        android:id="@id/card_scroll_view"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_gravity="fill|end|start"
+        android:drawSelectorOnTop="false"
+        android:fastScrollEnabled="false"
+        android:overScrollMode="never"
+        android:background="#FF000000" >
+
+        <FrameLayout
+            android:id="@id/card_scroll_content"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:addStatesFromChildren="true"
+            android:clickable="true"
+            android:focusable="true">
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="10">
+
+                <Space
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_weight="1.5" />
+
+                <LinearLayout
+                    android:id="@id/card_frame1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="7"
+                    android:paddingTop="30dp"
+                    android:paddingBottom="30dp"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center|top"
+                        android:layout_marginTop="10.0dip"
+                        android:orientation="horizontal"
+                        android:weightSum="10">
+
+                        <ImageView
+                            android:id="@id/type_icon"
+                            android:layout_width="0dip"
+                            android:layout_height="0dip"
+                            android:layout_gravity="start"
+                            android:scaleType="centerInside"
+                            android:visibility="gone"  />
+                        <ImageView
+                            android:id="@id/icon"
+                            android:layout_width="56.0dip"
+                            android:layout_height="56.0dip"
+                            android:layout_gravity="center_vertical"
+                            android:scaleType="centerInside" />
+
+                        <Space
+                            android:layout_width="0dp"
+                            android:layout_height="1dp"
+                            android:layout_weight="1" />
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="9"
+                            android:orientation="vertical">
+
+                        <TextView
+                            android:id="@id/type_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="left"
+                            android:textColor="#FFFFFF"
+                            android:textSize="22.0sp"
+                            android:ellipsize="end"
+                            android:maxLines="1" />
+
+                        <Chronometer xmlns:android="http://schemas.android.com/apk/res/android"
+                            android:id="@id/chronometer"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="left"
+                            android:textAppearance="@style/NotificationEventTime"
+                            android:visibility="gone" />
+
+                        <com.ricktop.ClockSkinCoco.DateTimeView xmlns:android="http://schemas.android.com/apk/res/android"
+                            android:id="@id/time"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="left"
+                            android:textAppearance="@style/NotificationEventTime"
+                            android:visibility="gone" />
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@id/title"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:gravity="left"
+                    android:maxLines="2"
+                    android:textColor="#FFFFFF"
+                    android:textSize="24.0sp" />
+
+                <TextView
+                    android:id="@id/text"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12.0dip"
+                    android:layout_marginBottom="12.0dip"
+                    android:maxLines="8"
+                    android:ellipsize="end"
+                    android:textColor="#FFFFFF"
+                    android:textSize="18.0sp" />
+
+                <ImageButton
+                    android:id="@id/options"
+                    style="@style/NotificationButtonWithOutBG"
+                    android:src="@drawable/notification_expand"
+                    android:text="@string/options" />
+
+                <Button
+                    android:id="@id/action1"
+                    style="@style/NotificationButton"
+                    android:visibility="gone" />
+
+                <Button
+                    android:id="@id/action2"
+                    style="@style/NotificationButton"
+                    android:visibility="gone" />
+
+                <Button
+                    android:id="@id/action3"
+                    style="@style/NotificationButton"
+                    android:visibility="gone" />
+
+                <Button
+                    android:id="@id/open"
+                    style="@style/NotificationButton"
+                    android:text="@string/open"
+                    android:visibility="gone" />
+
+                <Button
+                    android:id="@id/close"
+                    style="@style/NotificationRoundButton"
+                    android:text="@string/close"
+                    android:visibility="gone" />
+            </LinearLayout>
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1.5" />
+
+        </LinearLayout>
+        </FrameLayout>
+    </com.ricktop.ClockSkinCoco.NotificationScrollView>
+</FrameLayout>

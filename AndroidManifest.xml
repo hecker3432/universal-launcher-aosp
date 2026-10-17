@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:compileSdkVersion="36" android:compileSdkVersionCodename="16" android:installLocation="auto" package="com.ailife.ClockSkinCoco" platformBuildVersionCode="36" platformBuildVersionName="16">
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.NEARBY_WIFI_DEVICES"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_ADVERTISE" />
+    <uses-permission android:name="android.permission.BLUETOOTH_SCAN" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="android.permission.WRITE_SECURE_SETTINGS" />
+    <uses-permission android:name="android.permission.ADVANCED_WIDGET_API"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.BIND_APPWIDGET"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.READ_CALENDAR"/>
+    <uses-permission android:name="android.permission.ACCESS_NOTIFICATION_POLICY"/>
+    <uses-permission android:name="android.permission.REQUEST_DELETE_PACKAGES"/>
+    <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="com.android.alarm.permission.SET_ALARM"/>
+    <supports-screens android:anyDensity="true" android:largeScreens="true" android:normalScreens="true" android:smallScreens="true"/>
+    <uses-feature android:glEsVersion="0x00020000"/>
+    <uses-feature android:name="android.hardware.type.watch" />
+    <application android:allowBackup="true" android:appComponentFactory="androidx.core.app.CoreComponentFactory" android:enableOnBackInvokedCallback="false" android:extractNativeLibs="true" android:hardwareAccelerated="false" android:icon="@mipmap/w_ic_home" android:label="@string/app_name" android:largeHeap="true" android:name="com.ricktop.ClockSkinCoco.WatchApp" android:networkSecurityConfig="@xml/network_security_config" android:restoreAnyVersion="true" android:supportsRtl="true" android:theme="@style/AppBaseTheme">
+        <receiver android:exported="true" android:label="@string/lock_device_admin" android:name="com.ricktop.ClockSkinCoco.ScreenControl$LockAppDeviceAdmin" android:permission="android.permission.BIND_DEVICE_ADMIN">
+            <meta-data android:name="android.app.device_admin" android:resource="@xml/device_admin"/>
+            <intent-filter>
+                <action android:name="android.app.action.DEVICE_ADMIN_ENABLED"/>
+                <action android:name="android.app.action.DEVICE_ADMIN_DISABLED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="false" android:name="com.ricktop.ClockSkinCoco.LockDeviceReceiver"/>
+        <service android:exported="true" android:label="@string/app_name" android:name="com.ricktop.ClockSkinCoco.NotificationService" android:permission="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE">
+            <intent-filter>
+                <action android:name="android.service.notification.NotificationListenerService"/>
+            </intent-filter>
+        </service>
+        <service android:exported="true" android:name="com.ricktop.ClockSkinCoco.ScreenSensorService">
+            <intent-filter>
+                <action android:name="com.android.sensor.ScreenSensorService"/>
+            </intent-filter>
+        </service>
+        <activity
+            android:name="com.ailife.ClockSkinCoco.FlashLightActivity"
+            android:exported="true"
+            android:label="FlashLight"
+            android:icon="@mipmap/w_ic_flash">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity 
+            android:enabled="false" 
+            android:exported="true" 
+            android:name="com.ricktop.ClockSkinCoco.FakeHome">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.HOME"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity 
+            android:exported="true" 
+            android:icon="@mipmap/w_ic_setting" 
+            android:label="Universal Launcher Settings" 
+            android:name="com.ricktop.ClockSkinCoco.SettingsActivity" 
+            android:theme="@style/Theme.AppCompat">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity
+            android:clearTaskOnLaunch="true"
+            android:configChanges="keyboard|keyboardHidden|mcc|mnc|navigation|orientation|screenLayout|screenSize|smallestScreenSize"
+            android:enabled="true"
+            android:excludeFromRecents="true"
+            android:exported="true"
+            android:hardwareAccelerated="false"
+            android:label="Universal Launcher"
+            android:launchMode="singleTask"
+            android:name="com.ricktop.ClockSkinCoco.MainActivity"
+            android:stateNotNeeded="true"
+            android:taskAffinity=""
+            android:windowSoftInputMode="adjustPan"
+            android:icon="@mipmap/w_ic_home">
+            <meta-data android:name="android.app.lib_name" android:value="cocos2dlua"/>
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.HOME"/>
+                <action android:name="android.bluetooth.device.action.ACL_CONNECTED"/>
+                <action android:name="android.bluetooth.device.action.ACL_DISCONNECTED"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.android.watchengine.changeface"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity
+            android:configChanges="keyboardHidden|orientation|screenSize" 
+            android:exported="true" 
+            android:name="com.ricktop.myclockskinApp.widgetprovider.ClockSelectActivity" 
+            android:theme="@android:style/Theme.Holo.Light.NoActionBar.Fullscreen">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+            </intent-filter>
+        </activity>
+        <activity 
+            android:name="com.ailife.ClockSkinTransfer.MainActivity" 
+            android:label="clock skin transfer"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:icon="@mipmap/w_ic_sync"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.ailife.ClockSkinTransfer.InstallWatchFromIntentActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:exported="true" >
+            <intent-filter android:label="open watchface and indstall">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:scheme="file"/>
+                <data android:scheme="content"/>
+                <data android:mimeType="*/*"/>
+                <data android:pathPattern=".*\\.watch"/>
+                <data android:pathPattern=".*\\..*\\.watch"/>
+                <data android:pathPattern=".*\\..*\\..*\\.watch"/>
+                <data android:pathPattern=".*\\.zip"/>
+                <data android:pathPattern=".*\\..*\\.zip"/>
+                <data android:pathPattern=".*\\..*\\..*\\.zip"/>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.ailife.ClockSkinCoco.BackupActivity"
+            android:exported="true" />
+        <activity
+            android:name="com.ailife.ClockSkinCoco.ImportClockSkinActivity"
+            android:exported="true" />
+        <activity
+            android:name="com.ailife.ClockSkinCoco.TapActionEditorActivity"
+            android:exported="true"
+            android:label="Tap Action Editor"
+            android:theme="@style/Theme.AppCompat" />
+        <activity
+            android:name="com.ailife.ClockSkinCoco.GalleryManagementActivity"
+            android:exported="true"
+            android:label="Gallery Photos"
+            android:theme="@style/Theme.AppCompat" />
+        <activity
+            android:name="com.ailife.ClockSkinCoco.IconPickerActivity"
+            android:exported="true"
+            android:label="Change App Icon"
+            android:theme="@android:style/Theme.Holo" />
+        <activity
+            android:name="com.ailife.ClockSkinCoco.WatchFaceSelectionActivity"
+            android:exported="true"
+            android:label="Watch Faces"
+            android:icon="@mipmap/w_ic_home"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+        <activity
+            android:name="com.ailife.ClockSkinCoco.UBSPasswordSetupActivity"
+            android:exported="true"
+            android:theme="@android:style/Theme.Material.NoActionBar" />
+        <activity
+            android:name="com.ailife.ClockSkinCoco.UBSLauncherActivity"
+            android:label="Ultra Battery Saver"
+            android:icon="@mipmap/w_ic_lock"
+            android:enabled="false"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <uses-library android:name="com.google.android.wearable" android:required="false"/>
+        <service
+            android:name="com.ailife.ClockSkinCoco.ActionPerformer"
+            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.accessibilityservice.AccessibilityService" />
+            </intent-filter>
+            <meta-data
+                android:name="android.accessibilityservice"
+                android:resource="@xml/accessibility_service_config" />
+        </service>
+        <service
+            android:name="com.ailife.ClockSkinCoco.GlobalQsService"
+            android:enabled="true"
+            android:exported="true"
+            android:foregroundServiceType="location"
+            android:label="Global Quick Settings"/>
+
+        <!-- Hide Apps Feature -->
+        <activity
+            android:name="com.ailife.ClockSkinCoco.hideapps.AppPickerActivity"
+            android:label="Select Hidden Apps"
+            android:exported="false"
+            android:theme="@android:style/Theme.Material.Light" />
+
+        <activity
+            android:name="com.ailife.ClockSkinCoco.hideapps.PasswordSetupActivity"
+            android:label="Set Password"
+            android:exported="false"
+            android:theme="@android:style/Theme.Material.Light.Dialog" />
+
+        <receiver
+            android:name="com.ailife.ClockSkinCoco.hideapps.DialerUnlockReceiver"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.provider.Telephony.SECRET_CODE" />
+                <data android:scheme="android_secret_code" android:host="*" />
+            </intent-filter>
+        </receiver>
+    </application>
+
+    <queries>
+        <intent>
+            <action android:name="android.intent.action.MAIN" />
+        </intent>
+        <package android:name="com.arlosoft.macrodroid.helper" />
+        <package android:name="com.ailife.betterhealth" />
+    </queries>
+</manifest>

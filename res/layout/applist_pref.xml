@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@id/relativeLayout"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:layout_centerInParent="true"
+    android:gravity="center">
+
+    <ImageView
+        android:id="@id/item_image"
+        android:layout_width="100.0dip"
+        android:layout_height="100.0dip"
+        android:layout_marginStart="8.0dip"
+        android:layout_marginTop="8.0dip"
+        android:layout_marginEnd="8.0dip"
+        android:gravity="center"
+        app:layout_constraintEnd_toStartOf="@id/changeicon"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/item_text" />
+
+    <TextView
+        android:id="@id/item_text"
+        android:layout_width="0.0dip"
+        android:layout_height="30.0dip"
+        android:layout_marginStart="8.0dip"
+        android:layout_marginTop="8.0dip"
+        android:layout_marginEnd="8.0dip"
+        android:gravity="center"
+        android:maxLines="2"
+        android:textColor="#ffffffff"
+        android:textSize="24.0dip"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@id/changeicon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8.0dip"
+        android:layout_marginEnd="8.0dip"
+        android:text="Change icon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/item_image" />
+
+    <Button
+        android:id="@+id/zzzzd_btnMoveToTop"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8.0dip"
+        android:layout_marginStart="4dp"
+        android:layout_marginEnd="2dp"
+        android:text="⏫"
+        android:textSize="15sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/zzzzd_btnMoveUp"
+        app:layout_constraintTop_toBottomOf="@id/item_image" />
+
+    <Button
+        android:id="@+id/zzzzd_btnMoveUp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8.0dip"
+        android:layout_marginStart="2dp"
+        android:layout_marginEnd="2dp"
+        android:text="🔼"
+        android:textSize="15sp"
+        app:layout_constraintStart_toEndOf="@id/zzzzd_btnMoveToTop"
+        app:layout_constraintEnd_toStartOf="@+id/zzzzd_btnMoveDown"
+        app:layout_constraintTop_toBottomOf="@id/item_image" />
+
+    <Button
+        android:id="@+id/zzzzd_btnMoveDown"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8.0dip"
+        android:layout_marginStart="2dp"
+        android:layout_marginEnd="2dp"
+        android:text="🔽"
+        android:textSize="15sp"
+        app:layout_constraintStart_toEndOf="@id/zzzzd_btnMoveUp"
+        app:layout_constraintEnd_toStartOf="@+id/zzzzd_btnMoveToBottom"
+        app:layout_constraintTop_toBottomOf="@id/item_image" />
+
+    <Button
+        android:id="@+id/zzzzd_btnMoveToBottom"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8.0dip"
+        android:layout_marginStart="2dp"
+        android:layout_marginEnd="4dp"
+        android:text="⏬"
+        android:textSize="15sp"
+        app:layout_constraintStart_toEndOf="@id/zzzzd_btnMoveDown"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/item_image" />
+
+    <Button
+        android:id="@id/save"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8.0dip"
+        android:layout_marginEnd="8.0dip"
+        android:layout_marginBottom="8.0dip"
+        android:text="Close"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/appInfo" />
+
+    <Button
+        android:id="@id/reseticon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8.0dip"
+        android:layout_marginEnd="8.0dip"
+        android:text="Reset icon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/changeicon" />
+
+    <Button
+        android:id="@+id/appInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="20dp"
+        android:text="APP info"
+        app:layout_constraintBottom_toBottomOf="@id/appUninstall"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/zzzzd_btnMoveToTop"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/appUninstall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="4dp"
+        android:layout_marginTop="20dp"
+        android:text="Uninstall"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/zzzzd_btnMoveToBottom" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

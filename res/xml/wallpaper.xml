@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wallpaper android:label="ClockSkin Wallpaper" android:settingsActivity="com.ricktop.myclockskinApp.widgetprovider.ClockSelectActivity" android:thumbnail="@mipmap/ic_myclockskin"
+  xmlns:android="http://schemas.android.com/apk/res/android" />

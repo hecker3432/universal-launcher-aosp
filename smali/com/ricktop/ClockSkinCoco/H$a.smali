@@ -1,0 +1,55 @@
+.class Lcom/ricktop/ClockSkinCoco/H$a;
+.super Ljava/lang/Object;
+.source "SourceFile"
+
+# interfaces
+.implements Ljava/util/Comparator;
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/ricktop/ClockSkinCoco/H;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x0
+    name = null
+.end annotation
+
+
+# direct methods
+.method constructor <init>()V
+    .locals 0
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public a(Lcom/ricktop/ClockSkinCoco/H$d;Lcom/ricktop/ClockSkinCoco/H$d;)I
+    .locals 0
+
+    iget p1, p1, Lcom/ricktop/ClockSkinCoco/H$d;->b:I
+
+    iget p2, p2, Lcom/ricktop/ClockSkinCoco/H$d;->b:I
+
+    sub-int/2addr p1, p2
+
+    return p1
+.end method
+
+.method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
+    .locals 0
+
+    check-cast p1, Lcom/ricktop/ClockSkinCoco/H$d;
+
+    check-cast p2, Lcom/ricktop/ClockSkinCoco/H$d;
+
+    invoke-virtual {p0, p1, p2}, Lcom/ricktop/ClockSkinCoco/H$a;->a(Lcom/ricktop/ClockSkinCoco/H$d;Lcom/ricktop/ClockSkinCoco/H$d;)I
+
+    move-result p1
+
+    return p1
+.end method

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/zzzzi_global_qs_root"
+    android:clickable="false"
+    android:focusable="false">
+
+    <!-- Scrim (dimmed background) when expanded -->
+    <View
+        android:id="@+id/zzzzi_qs_scrim"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#80000000"
+        android:alpha="0"
+        android:visibility="gone"
+        android:clickable="true"/>
+
+    <!-- QS Panel container (layout inflated dynamically for round/square screens) -->
+    <FrameLayout
+        android:id="@+id/zzzzi_qs_panel_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        android:elevation="100dp">
+
+    </FrameLayout>
+
+    <!-- Touch interception zone at top (invisible) -->
+    <View
+        android:id="@+id/zzzzi_edge_gesture_zone"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_gravity="top"
+        android:background="#00000000"
+        android:clickable="true"/>
+
+</FrameLayout>

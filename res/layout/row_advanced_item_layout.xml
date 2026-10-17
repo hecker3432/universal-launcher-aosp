@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_vertical|left" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:custom="http://schemas.android.com/apk/res-auto">
+    <android.support.wearable.view.CircledImageView android:id="@id/icon_image" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_margin="2.0px" custom:circle_radius="40.0px" />
+    <TextView android:textSize="26.0sp" android:textColor="@color/white" android:id="@id/icon_name" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="10.0dip" android:fontFamily="sans-serif-condensed-light" android:textStyle="bold"/>
+</LinearLayout>

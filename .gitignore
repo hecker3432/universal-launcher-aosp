@@ -1,0 +1,6 @@
+build/
+dist/
+debug.keystore
+
+# Precompiled Lua files (encrypted)
+*.luac

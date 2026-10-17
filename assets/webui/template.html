@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Universal Launcher - Watch Face Manager</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <h1>Watch Faces</h1>
+
+    <!-- Folder Management Controls -->
+    <div class="folder-controls">
+        <button class="btn btn-primary" onclick="showCreateFolderDialog()">Create Folder</button>
+        <button class="btn btn-secondary" onclick="showRenameFolderDialog()">Rename Folder</button>
+        <button class="btn btn-danger" onclick="showDeleteFolderDialog()">Delete Folder</button>
+    </div>
+
+    <!-- Upload Form -->
+    <div class="box">
+        <form action="/upload" method="post" enctype="multipart/form-data">
+            <div class="box_input">
+                <input type="file" name="file" accept=".zip,.watch" multiple />
+                <input type="checkbox" name="storezip" checked />Keep original ZIP
+                <input type="checkbox" name="allowwatchmaker" checked />Allow WatchMaker
+            </div>
+            <div class="box_button">
+                <input type="submit" value="Upload Watch Face" />
+            </div>
+        </form>
+    </div>
+
+    <!-- Watch Faces List -->
+    <section class="watchlist-container">
+        <!-- Watch face cards will be inserted here by server -->
+        <!-- Example card with new buttons: -->
+        <!--
+        <div class="watch_card">
+            <div class="watch_card_title">
+                <a href="/show?name=WatchFaceName">WatchFaceName</a>
+            </div>
+            <div class="watch_card_spacer"></div>
+            <div class="watch_card_thumbnail">
+                <a href="/show?name=WatchFaceName">
+                    <img width="100%" height="100%" src="/image?name=WatchFaceName">
+                </a>
+            </div>
+            <div class="watch_card_spacer"></div>
+            <div class="watch_card_button_row_5">
+                <div><a href="/select?name=WatchFaceName" class="watch_card_button_element_green">ACTIVATE</a></div>
+                <div><span onclick="showRenameWatchFaceDialog('WatchFaceName')" class="watch_card_button_element_blue">RENAME</span></div>
+                <div><span onclick="showMoveWatchFaceDialog('WatchFaceName')" class="watch_card_button_element_orange">MOVE</span></div>
+                <div><a href="/download?name=WatchFaceName" class="watch_card_button_element_green">DOWNLOAD</a></div>
+                <div><a href="/delete?name=WatchFaceName" class="watch_card_button_element_red">DELETE</a></div>
+            </div>
+        </div>
+        -->
+    </section>
+
+    <!-- Create Folder Modal -->
+    <div id="createFolderModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="modal-title">Create New Folder</span>
+                <span class="modal-close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label class="form-label" for="newFolderName">Folder Name:</label>
+                    <input type="text" id="newFolderName" class="form-input" placeholder="Enter folder name" />
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="hideModal('createFolderModal')">Cancel</button>
+                <button class="btn btn-primary" onclick="createFolder()">Create</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Rename Folder Modal -->
+    <div id="renameFolderModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="modal-title">Rename Folder</span>
+                <span class="modal-close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label class="form-label" for="folderToRename">Select Folder:</label>
+                    <select id="folderToRename" class="form-select">
+                        <!-- Folders will be populated by server -->
+                        <option value="">Select a folder...</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="newFolderNameRename">New Name:</label>
+                    <input type="text" id="newFolderNameRename" class="form-input" placeholder="Enter new name" />
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="hideModal('renameFolderModal')">Cancel</button>
+                <button class="btn btn-primary" onclick="renameFolder()">Rename</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Delete Folder Modal -->
+    <div id="deleteFolderModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="modal-title">Delete Folder</span>
+                <span class="modal-close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label class="form-label" for="folderToDelete">Select Folder:</label>
+                    <select id="folderToDelete" class="form-select">
+                        <!-- Folders will be populated by server -->
+                        <option value="">Select a folder...</option>
+                    </select>
+                </div>
+                <p style="color: red;">Warning: This action cannot be undone!</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="hideModal('deleteFolderModal')">Cancel</button>
+                <button class="btn btn-danger" onclick="deleteFolder()">Delete</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Rename Watch Face Modal -->
+    <div id="renameWatchFaceModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="modal-title">Rename Watch Face</span>
+                <span class="modal-close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <input type="hidden" id="watchFaceToRename" />
+                <div class="form-group">
+                    <label class="form-label" for="newWatchFaceName">New Name:</label>
+                    <input type="text" id="newWatchFaceName" class="form-input" placeholder="Enter new name" />
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="hideModal('renameWatchFaceModal')">Cancel</button>
+                <button class="btn btn-primary" onclick="renameWatchFace()">Rename</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Move Watch Face Modal -->
+    <div id="moveWatchFaceModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="modal-title">Move Watch Face</span>
+                <span class="modal-close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <input type="hidden" id="watchFaceToMove" />
+                <div class="form-group">
+                    <label class="form-label" for="targetFolder">Target Folder:</label>
+                    <select id="targetFolder" class="form-select">
+                        <!-- Folders will be populated by server -->
+                        <option value="">Root (no folder)</option>
+                    </select>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="hideModal('moveWatchFaceModal')">Cancel</button>
+                <button class="btn btn-primary" onclick="moveWatchFace()">Move</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="/app.js"></script>
+</body>
+</html>

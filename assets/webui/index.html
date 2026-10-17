@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>ClockSkin Transfer</title>
+<link rel="icon" type="image/webp" href="/favicon.webp" />
+<link rel="stylesheet" href="/styles.css" type="text/css" />
+<script src="/app.js"></script>
+</head>
+<body>
+<div class="copyright">(c) 2018 Marco Ferreira | 2025 modded by AILIFE</div>
+
+<h1>Install Watchface</h1>
+<div class="box">
+<form id="uploadForm" method="post" action="/upload" enctype="multipart/form-data" novalidate onsubmit="handleUploadSubmit(event)">
+    <div class="box_input">
+        <input type="button" id="loadFile" value="Select Zip/Watch Files" onclick="document.getElementById('file').click();" />
+        <input type="file" name="file" id="file" accept=".zip,.watch" multiple hidden onchange="updateFileText();" />
+        <span id="fileText"></span>
+    </div>
+    <div class="box_button"><button type="submit">Send To Watch</button></div>
+</form>
+</div>
+
+<h1>Watch Faces</h1>
+<div class="folder-controls">
+    <button class="btn btn-primary" onclick="showCreateFolderDialog()">Create Folder</button>
+    <button class="btn btn-secondary" onclick="showRenameFolderDialog()">Rename Folder</button>
+    <button class="btn btn-danger" onclick="showDeleteFolderDialog()">Delete Folder</button>
+</div>
+<section id="watchlist-container" class="watchlist-container"></section>
+
+<!-- Modals -->
+<div id="createFolderModal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <span class="modal-title">Create New Folder</span>
+            <span class="modal-close" onclick="hideModal('createFolderModal')">&times;</span>
+        </div>
+        <div class="modal-body">
+            <div class="form-group">
+                <label class="form-label">Folder Name:</label>
+                <input type="text" id="newFolderName" class="form-input" />
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-secondary" onclick="hideModal('createFolderModal')">Cancel</button>
+            <button class="btn btn-primary" onclick="createFolder()">Create</button>
+        </div>
+    </div>
+</div>
+<div id="renameFolderModal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <span class="modal-title">Rename Folder</span>
+            <span class="modal-close" onclick="hideModal('renameFolderModal')">&times;</span>
+        </div>
+        <div class="modal-body">
+            <div class="form-group">
+                <label class="form-label">Select Folder:</label>
+                <select id="folderToRename" class="form-select"><option value="">Select...</option></select>
+            </div>
+            <div class="form-group">
+                <label class="form-label">New Name:</label>
+                <input type="text" id="newFolderNameRename" class="form-input" />
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-secondary" onclick="hideModal('renameFolderModal')">Cancel</button>
+            <button class="btn btn-primary" onclick="renameFolder()">Rename</button>
+        </div>
+    </div>
+</div>
+<div id="deleteFolderModal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <span class="modal-title">Delete Folder</span>
+            <span class="modal-close" onclick="hideModal('deleteFolderModal')">&times;</span>
+        </div>
+        <div class="modal-body">
+            <div class="form-group">
+                <label class="form-label">Select Folder:</label>
+                <select id="folderToDelete" class="form-select"><option value="">Select...</option></select>
+            </div>
+            <p style="color:red;">Warning: Cannot be undone!</p>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-secondary" onclick="hideModal('deleteFolderModal')">Cancel</button>
+            <button class="btn btn-danger" onclick="deleteFolder()">Delete</button>
+        </div>
+    </div>
+</div>
+<div id="renameWatchFaceModal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <span class="modal-title">Rename Watch Face</span>
+            <span class="modal-close" onclick="hideModal('renameWatchFaceModal')">&times;</span>
+        </div>
+        <div class="modal-body">
+            <input type="hidden" id="watchFaceToRename" />
+            <div class="form-group">
+                <label class="form-label">New Name:</label>
+                <input type="text" id="newWatchFaceName" class="form-input" />
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-secondary" onclick="hideModal('renameWatchFaceModal')">Cancel</button>
+            <button class="btn btn-primary" onclick="renameWatchFace()">Rename</button>
+        </div>
+    </div>
+</div>
+<div id="moveWatchFaceModal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <span class="modal-title">Move Watch Face</span>
+            <span class="modal-close" onclick="hideModal('moveWatchFaceModal')">&times;</span>
+        </div>
+        <div class="modal-body">
+            <input type="hidden" id="watchFaceToMove" />
+            <div class="form-group">
+                <label class="form-label">Target Folder:</label>
+                <select id="targetFolder" class="form-select"><option value="">Root</option></select>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-secondary" onclick="hideModal('moveWatchFaceModal')">Cancel</button>
+            <button class="btn btn-primary" onclick="moveWatchFace()">Move</button>
+        </div>
+    </div>
+</div>
+<div id="watchFaceDetailModal" class="modal">
+    <div class="modal-content modal-large">
+        <div class="modal-header">
+            <span class="modal-title" id="watchFaceDetailTitle">Watch Face</span>
+            <span class="modal-close" onclick="hideModal('watchFaceDetailModal')">&times;</span>
+        </div>
+        <div class="modal-body">
+            <input type="hidden" id="watchFaceDetailPath" />
+            <div class="watch-detail-image">
+                <img id="watchFaceDetailImage" src="" alt="Watch Face Preview" />
+            </div>
+        </div>
+        <div class="modal-footer modal-footer-column">
+            <button class="btn btn-primary btn-full" onclick="activateWatchFaceFromDetail()">ACTIVATE</button>
+            <button class="btn btn-secondary btn-full" onclick="renameWatchFaceFromDetail()">RENAME</button>
+            <button class="btn btn-warning btn-full" onclick="moveWatchFaceFromDetail()">MOVE</button>
+            <button class="btn btn-primary btn-full" onclick="downloadWatchFaceFromDetail()">DOWNLOAD</button>
+            <button class="btn btn-danger btn-full" onclick="deleteWatchFaceFromDetail()">DELETE</button>
+        </div>
+    </div>
+</div>
+</body>
+</html>

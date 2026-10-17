@@ -1,0 +1,602 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <PreferenceCategory android:title="Watchface">
+        <Preference
+            android:key="setskin"
+            android:persistent="false"
+            android:title="Select watch face" />
+        <SwitchPreferenceCompat
+            android:defaultValue="false"
+            android:key="useWatchfaceSelector2"
+            android:summary="Use new watchface selection UI"
+            android:title="Watchface selector 2.0" />
+        <Preference
+            android:key="skinprefs"
+            android:persistent="false"
+            android:title="Watch face setting" />
+        <Preference
+            android:key="resetWatchface"
+            android:persistent="false"
+            android:summary="Clear cached data and switch to default watch face"
+            android:title="Reset watchface" />
+        <ListPreference
+            android:defaultValue="false"
+            android:entries="@array/watchface_sort_entries"
+            android:entryValues="@array/watchface_sort_values"
+            android:key="sp_clock_skin_sort_method"
+            android:title="Watch face sort method"
+            app:useSimpleSummaryProvider="true" />
+        <SwitchPreferenceCompat
+            android:defaultValue="false"
+            android:key="allowCalendarAccess"
+            android:summary="Allow watch faces to access calendar events"
+            android:title="Allow calendar access" />
+        <SwitchPreferenceCompat
+            android:defaultValue="false"
+            android:key="watchfaceDoNotDisturb"
+            android:summary="Block watch face sounds and vibrations"
+            android:title="Do Not Disturb mode" />
+        <Preference
+            android:key="getWatchFace"
+            android:persistent="false"
+            android:summary="disclaimer: the following service is not affiliated with this app"
+            android:title="Watch face store" />
+        <Preference
+            android:key="sendWatchFace"
+            android:persistent="false"
+            android:summary="powered by ClockSkinTransfer"
+            android:title="Manage watch face from PC" />
+        <Preference
+            android:key="editGallery"
+            android:persistent="false"
+            android:summary="Manage photos for gallery_2d watch face layers"
+            android:title="Edit Gallery" />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="APPs">
+        <ListPreference
+            android:defaultValue="2"
+            android:entries="@array/app_list_style"
+            android:entryValues="@array/app_list_style_values"
+            android:key="sp_launcher_appstyle"
+            android:summary="@string/app_style_descr"
+            android:title="APP list style" />
+        <ListPreference
+            android:defaultValue="3"
+            android:entries="@array/grid_column_count"
+            android:entryValues="@array/grid_column_count_values"
+            android:key="sp_grid_columns"
+            android:summary="Number of app columns in grid view (2, 3, or 4)"
+            android:title="Grid column count" />
+        <ListPreference
+            android:defaultValue="System"
+            android:entries="@array/icon_pack"
+            android:entryValues="@array/icon_pack"
+            android:key="iconPack"
+            android:title="Launcher Icon Pack"
+            android:summary="download a ADW launcher compatible icon pack and restart UL, it will be selectable here" />
+        <SwitchPreferenceCompat
+            android:defaultValue="true"
+            android:key="google_Widget"
+            android:title="Show google widget"
+            android:summary="shortcut to open google search bar, only work if you have google service" />
+        <SwitchPreferenceCompat
+            android:defaultValue="false"
+            android:key="force_alphabetical_sort"
+            android:title="Sort apps alphabetically"
+            android:summary="Force alphabetical sorting and ignore custom app order" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="hide_apps_category"
+        android:title="Hide Apps">
+        <Preference
+            android:key="select_hidden_apps"
+            android:persistent="false"
+            android:summary="Choose which apps to hide from launcher"
+            android:title="Select Hidden Apps" />
+        <SwitchPreferenceCompat
+            android:defaultValue="false"
+            android:key="hide_apps_advanced_kiosk"
+            android:summary="Block hidden apps from launching (be careful not to block SystemUI/keyboard or other important apps!)"
+            android:title="Advanced Kiosk Protection" />
+        <Preference
+            android:key="hide_settings"
+            android:persistent="false"
+            android:summary="Hide this settings category with a password (one-time use)"
+            android:title="Hide Settings" />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="Quick Settings">
+        <SwitchPreferenceCompat
+            android:defaultValue="false"
+            android:key="global_qs_enabled"
+            android:summary="Enable global pull-down quick settings overlay (requires overlay and location permissions)"
+            android:title="Global pull-down QS" />
+        <SeekBarPreference
+            android:defaultValue="50"
+            android:dependency="global_qs_enabled"
+            android:key="pulldown_sensitivity"
+            android:max="200"
+            android:min="10"
+            android:summary="Adjust the height of the sensor strip for pulling down QS (50-200dp)"
+            android:title="Pull-down sensitivity"
+            app:showSeekBarValue="true" />
+        <SwitchPreferenceCompat
+            android:defaultValue="false"
+            android:key="legacyQs"
+            android:summary="use old android4.4 style quick settings"
+            android:title="Use legacy style QS"
+            android:disableDependentsState="true" />
+        <SwitchPreferenceCompat
+            android:defaultValue="false"
+            android:key="qsExtraRow"
+            android:summary="show hotspot and airplane mode togle in QS, require extra space on screen"
+            android:title="Show extra row in QS"
+            android:dependency="legacyQs"/>
+        <SwitchPreferenceCompat
+            android:defaultValue="false"
+            android:key="alternativeVolume"
+            android:summary="if your system do not have volume adjust dialog, enable this option, the volume button will cycle through all steps"
+            android:title="Volume dialog workaround"
+            android:dependency="legacyQs" />
+        <SwitchPreferenceCompat
+            android:defaultValue="false"
+            android:key="rootEnabled"
+            android:summary="allow the app to use ROOT permission to toggle wifi,mobile data,bluetooth"
+            android:title="Allow ROOT permission"
+            android:dependency="legacyQs" />
+        <SwitchPreferenceCompat
+            android:defaultValue="false"
+            android:key="qsColor"
+            android:title="Colorful QS"
+            android:dependency="legacyQs" />
+        <com.ailife.ClockSkinCoco.ColorPickerPreferenceSimple
+            android:dependency="qsColor"
+            android:key="qsBackground"
+            android:title="QS background color"
+            android:defaultValue="#000000"
+            android:persistent="true"
+            app:widgetLayout="@layout/zzzzb_color_picker_preference_widget"
+            app:useSimpleSummaryProvider="true" />
+        <com.ailife.ClockSkinCoco.ColorPickerPreferenceSimple
+            android:dependency="qsColor"
+            android:key="qsStatic"
+            android:title="QS static tile color"
+            android:defaultValue="#AAAAAA"
+            app:widgetLayout="@layout/zzzzb_color_picker_preference_widget"
+            app:useSimpleSummaryProvider="true" />
+        <com.ailife.ClockSkinCoco.ColorPickerPreferenceSimple
+            android:dependency="qsColor"
+            android:key="qsConnected"
+            android:title="QS connected color"
+            android:defaultValue="#379950"
+            app:widgetLayout="@layout/zzzzb_color_picker_preference_widget"
+            app:useSimpleSummaryProvider="true" />
+        <com.ailife.ClockSkinCoco.ColorPickerPreferenceSimple
+            android:dependency="qsColor"
+            android:key="qsIdle"
+            android:title="QS Idle color"
+            android:defaultValue="#2444e3"
+            app:widgetLayout="@layout/zzzzb_color_picker_preference_widget"
+            app:useSimpleSummaryProvider="true" />
+        <com.ailife.ClockSkinCoco.ColorPickerPreferenceSimple
+            android:dependency="qsColor"
+            android:key="qsDisconnected"
+            android:title="QS disconnected color"
+            android:defaultValue="#ad7623"
+            app:widgetLayout="@layout/zzzzb_color_picker_preference_widget"
+            app:useSimpleSummaryProvider="true" />
+        <com.ailife.ClockSkinCoco.ColorPickerPreferenceSimple
+            android:dependency="qsColor"
+            android:key="qsOff"
+            android:title="QS off color"
+            android:defaultValue="#AAAAAA"
+            app:widgetLayout="@layout/zzzzb_color_picker_preference_widget"
+            app:useSimpleSummaryProvider="true" />
+        <com.ailife.ClockSkinCoco.ColorPickerPreferenceSimple
+            android:dependency="legacyQs"
+            android:key="qsBrightnessSliderColor"
+            android:title="QS brightness slider color"
+            android:defaultValue="#FFFFFF"
+            app:widgetLayout="@layout/zzzzb_color_picker_preference_widget"
+            app:useSimpleSummaryProvider="true" />
+        <SeekBarPreference
+            android:defaultValue="20"
+            android:dependency="legacyQs"
+            android:key="qsRoundMargin"
+            android:max="50"
+            android:min="0"
+            android:summary="Adjust the margin of QS panel on round screens (0-50dp)"
+            android:title="Round screen QS margin"
+            app:showSeekBarValue="true" />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="Health">
+        <SwitchPreferenceCompat
+            android:defaultValue="false"
+            android:key="stepEnabled"
+            android:summary="Display steps, calories,distance in watch face"
+            android:title="Display steps" />
+        <SwitchPreferenceCompat
+            android:defaultValue="false"
+            android:key="heartEnabled"
+            android:summary="Display heart rate in watch face"
+            android:title="Display heart rate" />
+        <SwitchPreferenceCompat
+            android:defaultValue="false"
+            android:key="bloodOxygenEnabled"
+            android:dependency="heartEnabled"
+            android:summary="Display blood oxygen in watch face"
+            android:title="Display blood oxygen" />
+        <Preference
+            android:key="download_betterhealth"
+            android:persistent="false"
+            android:summary="this app uses Better Health Tracker third party API to get the health data, without it the health features will not work"
+            android:title="Download health companion APP" />
+        <SwitchPreferenceCompat
+            android:defaultValue="false"
+            android:key="rawStep"
+            android:dependency="stepEnabled"
+            android:summary="get the steps directly from the sensor insted of from log file"
+            android:title="Use instant step" />
+        <SwitchPreferenceCompat
+            android:defaultValue="false"
+            android:key="rawHeart"
+            android:dependency="heartEnabled"
+            android:summary="get the heart rate directly from the sensor insted of from log file"
+            android:title="use instant heart rate" />
+        <ListPreference
+            android:key="healthUpdateInterval"
+            android:title="Health data update interval"
+            android:summary="How often to fetch health data"
+            android:entries="@array/update_interval_entries"
+            android:entryValues="@array/update_interval_values"
+            android:defaultValue="10"
+            app:useSimpleSummaryProvider="true" />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="Weather">
+        <SwitchPreferenceCompat
+            android:defaultValue="true"
+            android:key="weatherEnabled"
+            android:title="Enable weather update (wifi needed)" />
+        <ListPreference
+            android:dependency="weatherEnabled"
+            android:key="weatherProvider"
+            android:title="Weather Provider"
+            android:entries="@array/weather_provider_entries"
+            android:entryValues="@array/weather_provider_values"
+            android:defaultValue="metno"
+            app:useSimpleSummaryProvider="true" />
+        <SwitchPreferenceCompat
+            android:dependency="weatherEnabled"
+            android:defaultValue="false"
+            android:key="weatherAutoLanguage"
+            android:summary="Use device language for weather descriptions (where supported)"
+            android:title="Use system language for weather" />
+        <SwitchPreferenceCompat
+            android:dependency="weatherEnabled"
+            android:defaultValue="false"
+            android:key="roundTemperature"
+            android:summary="Remove decimal point from temperature (e.g., 23 instead of 23.5)"
+            android:title="Round temperature" />
+        <EditTextPreference
+            android:dependency="weatherEnabled"
+            android:key="apiKey"
+            android:title="WeatherAPI.com API key"
+            android:summary="Only needed if using WeatherAPI.com provider"
+            android:defaultValue=""
+            app:useSimpleSummaryProvider="true"/>
+        <EditTextPreference
+            android:dependency="weatherEnabled"
+            android:key="openWeatherMapApiKey"
+            android:title="OpenWeatherMap API key"
+            android:summary="Only needed if using OpenWeatherMap provider"
+            android:defaultValue=""
+            app:useSimpleSummaryProvider="true"/>
+        <Preference
+            android:key="launchSetting"
+            android:persistent="false"
+            android:title="Location &amp; Timezone" />
+        <ListPreference
+            android:dependency="weatherEnabled"
+            android:key="weatherUpdateInterval"
+            android:title="Weather update interval"
+            android:summary="How often to fetch weather data"
+            android:entries="@array/update_interval_entries"
+            android:entryValues="@array/update_interval_values"
+            android:defaultValue="10"
+            app:useSimpleSummaryProvider="true" />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="Notification">
+        <SwitchPreferenceCompat
+            android:defaultValue="true"
+            android:key="notificationStation"
+            android:summary="if your device do not have access to notification listener, enable this option"
+            android:title="Notification permission workaround"
+            android:disableDependentsState="true" />
+        <SwitchPreferenceCompat
+            android:defaultValue="false"
+            android:key="notificationWake"
+            android:title="Wake device on new notification"
+            android:summary="on most device the system do it, in that case do not enable this option"
+            android:dependency="notificationStation" />
+        <SwitchPreferenceCompat
+            android:defaultValue="true"
+            android:key="notificationScroll"
+            android:title="Scroll to notification on new notification"
+            android:summary="automatically navigate to notification page when new notification arrives"
+            android:dependency="notificationStation" />
+        <SwitchPreferenceCompat
+            android:defaultValue="false"
+            android:key="notificationVibrate"
+            android:title="Vibrate on new notification"
+            android:summary="on most device the system do it, in that case do not enable this option"
+            android:dependency="notificationStation" />
+        <SwitchPreferenceCompat
+            android:defaultValue="false"
+            android:key="alwaysVibrate"
+            android:title="Always vibrate"
+            android:summary="vibrate even when device is silent"
+            android:dependency="notificationVibrate" />
+        <SwitchPreferenceCompat
+            android:defaultValue="false"
+            android:key="notificationFilter"
+            android:title="AI notification filter"
+            android:summary="try to detect useless notifications like downloading"
+            android:dependency="notificationStation" />
+        <SwitchPreferenceCompat
+            android:defaultValue="true"
+            android:key="appLabel"
+            android:title="Use APP label"
+            android:summary="use app label insted of app package name in notification, keep in mind 2 application can have the same label"
+            android:dependency="notificationStation" />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="Advanced">
+        <SwitchPreferenceCompat
+            android:defaultValue="false"
+            android:key="home_button"
+            android:summary="lock screen when home is pressed when already on home screen"
+            android:title="Lock screen with home button" />
+        <ListPreference
+            android:defaultValue="25"
+            android:entries="@array/fps_entries"
+            android:entryValues="@array/fps_values"
+            android:key="sp_clock_skin_display"
+            android:summary="Maximum frame rate for watchface rendering"
+            android:title="Maximum FPS"
+            app:useSimpleSummaryProvider="true" />
+        <SwitchPreferenceCompat
+            android:defaultValue="false"
+            android:key="app_dpi_override"
+            android:summary="Use custom DPI for the launcher"
+            android:title="DPI override" />
+        <ListPreference
+            android:dependency="app_dpi_override"
+            android:entries="@array/dpi_values"
+            android:entryValues="@array/dpi_values"
+            android:key="app_dpi_value"
+            android:shouldDisableView="true"
+            android:title="DPI value" />
+        <SwitchPreferenceCompat
+            android:defaultValue="false"
+            android:key="globalScale"
+            android:title="Global watchface scale"
+            android:summary="the scale value of watchface is effective for all watchface on the device"
+            android:disableDependentsState="true" />
+        <ListPreference
+            android:defaultValue="default"
+            android:entries="@array/screen_shape_entries"
+            android:entryValues="@array/screen_shape_values"
+            android:key="screen_shape"
+            android:summary="Force screen shape for watchfaces"
+            android:title="Screen Shape" />
+        <Preference
+            android:key="backup"
+            android:persistent="false"
+            android:title="Backup &amp; Restore" />
+        <Preference
+            android:key="import_clockskin"
+            android:persistent="false"
+            android:summary="Import .watch and .zip files from external storage"
+            android:title="Import ClockSkin folder" />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="Always on Display">
+        <SwitchPreferenceCompat
+            android:defaultValue="false"
+            android:key="aod_enabled"
+            android:summary="Enhanced AOD with timeout and brightness control"
+            android:title="Enable Always-On Display" />
+
+        <ListPreference
+            android:defaultValue="15"
+            android:dependency="aod_enabled"
+            android:entries="@array/aod_timeout_entries"
+            android:entryValues="@array/aod_timeout_values"
+            android:key="aod_timeout"
+            android:summary="Enter AOD mode after inactivity"
+            android:title="AOD Timeout"
+            app:useSimpleSummaryProvider="true" />
+
+        <SwitchPreferenceCompat
+            android:defaultValue="true"
+            android:dependency="aod_enabled"
+            android:key="aod_dim_screen"
+            android:summary="Reduce brightness when in AOD mode"
+            android:title="Dim screen in AOD" />
+
+        <ListPreference
+            android:defaultValue="20"
+            android:dependency="aod_dim_screen"
+            android:entries="@array/aod_brightness_entries"
+            android:entryValues="@array/aod_brightness_values"
+            android:key="aod_brightness"
+            android:summary="Screen brightness in AOD mode"
+            android:title="AOD Brightness"
+            app:useSimpleSummaryProvider="true" />
+
+        <SwitchPreferenceCompat
+            android:defaultValue="false"
+            android:dependency="aod_enabled"
+            android:key="aod_true_always_on"
+            android:summary="Prevent screen from turning off (high battery usage)"
+            android:title="True Always-On" />
+
+        <SwitchPreferenceCompat
+            android:defaultValue="true"
+            android:dependency="aod_enabled"
+            android:key="aod_lock_viewpager"
+            android:summary="Prevent page switching in AOD mode, double-press to unlock"
+            android:title="Lock ViewPager in AOD" />
+
+        <SwitchPreferenceCompat
+            android:defaultValue="true"
+            android:dependency="aod_lock_viewpager"
+            android:key="aod_shallow_sleep"
+            android:summary="Single touch wake the screen without unlock the viewpager, when disabled unlock the viewpager to get brightness and fps back"
+            android:title="Shallow Sleep" />
+
+        <SwitchPreferenceCompat
+            android:defaultValue="true"
+            android:dependency="aod_lock_viewpager"
+            android:key="aod_disable_long_press"
+            android:summary="Ignore long press gestures when ViewPager is locked"
+            android:title="Disable Long Press in AOD" />
+
+        <SwitchPreferenceCompat
+            android:defaultValue="true"
+            android:dependency="aod_lock_viewpager"
+            android:key="aod_disable_tap_action"
+            android:summary="Disable watchface tap actions when ViewPager is locked"
+            android:title="Disable Tap Actions in AOD" />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="Gestures">
+        <ListPreference
+            android:defaultValue="4"
+            android:entries="@array/gesture_actions"
+            android:entryValues="@array/gesture_actions_values"
+            android:key="doublePressAction"
+            android:title="Double press action" 
+            app:useSimpleSummaryProvider="true"/>
+        <ListPreference
+            android:defaultValue="3"
+            android:entries="@array/gesture_actions"
+            android:entryValues="@array/gesture_actions_values"
+            android:key="longPressAction"
+            android:title="Long press action"
+            app:useSimpleSummaryProvider="true" />
+        <Preference
+            android:key="edit_tap_action"
+            android:persistent="false"
+            android:summary="Customize tap actions for watchface widgets"
+            android:title="Edit tap actions" />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="Ultra Battery Saver">
+        <SwitchPreferenceCompat
+            android:defaultValue="false"
+            android:key="ultra_battery_saver_enabled"
+            android:summary="Show launcher icon to enter ultra battery saver mode"
+            android:title="Enable Launcher Activity" />
+
+        <SwitchPreferenceCompat
+            android:defaultValue="false"
+            android:key="ultra_battery_saver_auto_lock"
+            android:summary="Automatically lock viewpager when screen turns off"
+            android:title="Auto-lock on Screen Off" />
+
+        <ListPreference
+            android:defaultValue="keypad"
+            android:entries="@array/ubs_password_type_entries"
+            android:entryValues="@array/ubs_password_type_values"
+            android:key="ultra_battery_saver_password_type"
+            android:summary="Choose password input method"
+            android:title="Password Type"
+            app:useSimpleSummaryProvider="true" />
+
+        <Preference
+            android:key="ultra_battery_saver_set_password"
+            android:persistent="false"
+            android:summary="Tap to configure unlock password"
+            android:title="Set Password" />
+
+        <SwitchPreferenceCompat
+            android:defaultValue="false"
+            android:key="ultra_battery_saver_advanced_kiosk"
+            android:summary="Prevent other apps from launching when UBS is locked (requires accessibility service)"
+            android:title="Advanced Kiosk Protection" />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="Debug">
+        <SwitchPreferenceCompat
+            android:defaultValue="false"
+            android:key="ignoreLuaError"
+            android:title="Ignore Lua error"
+            android:summary="Do not show dialog for Lua errors" />
+        <SwitchPreferenceCompat
+            android:defaultValue="true"
+            android:key="enableShaderReload"
+            android:title="Enable shader reload"
+            android:summary="Reload shaders when GL surface is recreated (disable if experiencing crashes)" />
+        <Preference
+            android:key="restart"
+            android:persistent="false"
+            android:title="Restart launcher" />
+        <Preference
+            android:key="exit"
+            android:persistent="false"
+            android:title="Exit launcher" />
+        <Preference
+            android:key="uninstall"
+            android:persistent="false"
+            android:title="Uninstall launcher" />
+        <Preference
+            android:key="force_stop_launcher"
+            android:persistent="false"
+            android:title="Force stop launcher" />
+        <Preference
+            android:key="crash_launcher"
+            android:persistent="false"
+            android:title="Crash launcher" />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="About">
+        <Preference
+            android:key="app_version"
+            android:persistent="false"
+            android:title="Version"
+            android:summary="V4"/>
+        <SwitchPreferenceCompat
+            android:defaultValue="true"
+            android:key="autoUpdateCheck"
+            android:title="Automatic update check"
+            android:summary="Check for updates when opening settings" />
+        <Preference
+            android:key="checkUpdateNow"
+            android:persistent="false"
+            android:title="Check for updates"
+            android:summary="Check for app updates now" />
+        <Preference
+            android:persistent="false"
+            android:title="About developer"
+            android:summary="developed by @Eric_Crochemore, modded by @AILIFE"/>
+        <Preference
+            android:key="bugReport"
+            android:persistent="false"
+            android:summary="the new maintainer of this app is happy to solve any problem within my capability"
+            android:title="Report bug" />
+        <Preference
+            android:key="shareCrashReport"
+            android:persistent="false"
+            android:summary="Share the crash log file for debugging"
+            android:title="Share crash report" />
+    </PreferenceCategory>
+
+</PreferenceScreen>

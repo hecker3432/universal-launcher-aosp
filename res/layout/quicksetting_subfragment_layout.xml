@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/main_container" android:background="#ff000000" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_centerVertical="true"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/quick_settings_container" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginLeft="10.0dip" android:layout_marginRight="10.0dip" android:layout_centerHorizontal="true" android:layout_centerVertical="true">
+        <com.ricktop.ClockSkinCoco.DateView android:theme="@style/Theme.AppCompat" android:textSize="38.0dip" android:textColor="#fffafafa" android:gravity="center" android:id="@id/date" android:tag="MMM d" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textAllCaps="true" />
+        <com.ricktop.ClockSkinCoco.DateView android:theme="@style/Theme.AppCompat" android:textSize="28.0dip" android:textColor="#fffafafa" android:gravity="center" android:layout_gravity="center" android:id="@id/dayOfWeek" android:tag="EEEE" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="6.0dip" android:layout_marginBottom="6.0dip" />
+        <LinearLayout android:gravity="bottom|center" android:orientation="horizontal" android:id="@id/status_view" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="40.0dip" android:layout_marginRight="40.0dip">
+            <LinearLayout android:orientation="vertical" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0">
+                <RelativeLayout android:layout_width="60.0dip" android:layout_height="60.0dip">
+                    <ImageView android:id="@id/sim_status" android:layout_width="60.0dip" android:layout_height="60.0dip" />
+                    <ImageView android:id="@id/network_stat" android:layout_width="20.0dip" android:layout_height="20.0dip" android:layout_marginTop="3.0dip" android:layout_marginStart="6.0dip" />
+                </RelativeLayout>
+                <TextView android:textSize="16.0dip" android:textColor="@android:color/white" android:gravity="center" android:id="@id/sim_oprator" android:layout_width="60.0dip" android:layout_height="wrap_content" />
+            </LinearLayout>
+            <Space android:layout_width="10.0dip" android:layout_height="fill_parent" />
+            <com.ricktop.ClockSkinCoco.DateView android:theme="@style/Theme.AppCompat" android:textSize="32.0dip" android:textColor="#fffafafa" android:gravity="center" android:layout_gravity="center" android:id="@id/hour" android:tag="hmm" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+            <Space android:layout_width="10.0dip" android:layout_height="fill_parent" />
+        </LinearLayout>
+        <LinearLayout android:gravity="center" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="40.0dip" android:layout_marginRight="40.0dip">
+            <ImageView android:id="@id/bt_phone_stat" android:layout_width="@dimen/switch_icon_size" android:layout_height="@dimen/switch_icon_size" />
+            <com.ricktop.ClockSkinCoco.BatteryPercentageView android:theme="@style/Theme.AppCompat" android:textSize="36.0dip" android:gravity="center" android:id="@id/percentage" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        </LinearLayout>
+    </LinearLayout>
+    <com.ricktop.ClockSkinCoco.BatteryMeterView android:id="@id/pb" android:layout_width="fill_parent" android:layout_height="fill_parent" android:max="100" android:indeterminate="false" android:layout_alignParentTop="true" android:layout_alignParentStart="true" style="?android:progressBarStyleHorizontal" />
+</RelativeLayout>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/app_layout_matrix" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <android.support.wearable.myView.WearableListView android:id="@id/app_list_view" android:background="#ff000000" android:paddingLeft="35.0dip" android:paddingTop="40.0dip" android:paddingRight="35.0dip" android:paddingBottom="40.0dip" android:scrollbars="none" android:layout_width="fill_parent" android:layout_height="fill_parent" android:dividerHeight="0.0dip"
+      xmlns:android="http://schemas.android.com/apk/res/android" />
+</RelativeLayout>

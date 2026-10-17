@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="screen_shape_entries">
+        <item>Default</item>
+        <item>Round</item>
+        <item>Square</item>
+    </string-array>
+    <string-array name="screen_shape_values">
+        <item>default</item>
+        <item>round</item>
+        <item>square</item>
+    </string-array>
+    <string-array name="app_list_style">
+        <item>Grid</item>
+        <item>List</item>
+        <item>Waterfall</item>
+    </string-array>
+    <string-array name="app_list_style_values">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+    <string-array name="grid_column_count">
+        <item>2 columns</item>
+        <item>3 columns</item>
+        <item>4 columns</item>
+    </string-array>
+    <string-array name="grid_column_count_values">
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+    </string-array>
+    <array name="batterymeter_color_drawable">
+        <item>@drawable/battery_low_circle</item>
+        <item>@drawable/battery_mid_circle</item>
+        <item>@drawable/battery_normal_circle</item>
+    </array>
+    <integer-array name="batterymeter_color_levels">
+        <item>10</item>
+        <item>30</item>
+        <item>100</item>
+    </integer-array>
+    <array name="batterymeter_color_values">
+        <item>#ffff0000</item>
+        <item>#ffffff00</item>
+        <item>#ff1ccf70</item>
+    </array>
+    <string-array name="bool_val">
+        <item>true</item>
+        <item>false</item>
+    </string-array>
+    <integer-array name="circle_border_cap">
+        <item>65536</item>
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </integer-array>
+    <integer-array name="circle_border_color">
+        <item>16</item>
+    </integer-array>
+    <integer-array name="circle_border_width">
+        <item>64</item>
+    </integer-array>
+    <array name="circle_color" />
+    <integer-array name="circle_padding">
+        <item>64</item>
+    </integer-array>
+    <integer-array name="circle_radius">
+        <item>64</item>
+    </integer-array>
+    <integer-array name="circle_radius_pressed">
+        <item>64</item>
+    </integer-array>
+    <string-array name="distance_unit">
+        <item>Kilometer</item>
+        <item>Miles</item>
+    </string-array>
+    <string-array name="dpi_values">
+        <item>80</item>
+        <item>100</item>
+        <item>110</item>
+        <item>120</item>
+        <item>130</item>
+        <item>140</item>
+        <item>150</item>
+        <item>160</item>
+        <item>180</item>
+        <item>200</item>
+        <item>220</item>
+        <item>240</item>
+        <item>260</item>
+        <item>280</item>
+        <item>300</item>
+    </string-array>
+    <string-array name="hr_mode">
+        <item>Enabled</item>
+        <item>Disabled</item>
+    </string-array>
+    <string-array name="icon_pack">
+        <item>System</item>
+    </string-array>
+    <array name="progress_spinner_sequence">
+        <item>#fff4b400</item>
+        <item>#ffdb4437</item>
+        <item>#ff4285f4</item>
+        <item>#ff0f9d58</item>
+    </array>
+    <string-array name="temp_unit">
+        <item>Celsius</item>
+        <item>Farenheit</item>
+    </string-array>
+    <string-array name="timeout">
+        <item>0</item>
+        <item>3</item>
+        <item>5</item>
+        <item>7</item>
+        <item>8</item>
+        <item>10</item>
+    </string-array>
+    <string-array name="gesture_actions">
+        <item>Nothing</item>
+        <item>Turn screen off</item>
+        <item>Lock viewpager</item>
+        <item>Select watchface</item>
+        <item>Watchface configure dialog</item>
+    </string-array>
+    <string-array name="gesture_actions_values">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+    </string-array>
+    <string-array name="watchface_sort_entries">
+        <item>@string/sort_by_name</item>
+        <item>@string/sort_by_date</item>
+    </string-array>
+    <string-array name="watchface_sort_values">
+        <item>false</item>
+        <item>true</item>
+    </string-array>
+    <string-array name="fps_entries">
+        <item>1 FPS (Ultra Battery Saver)</item>
+        <item>5 FPS (Battery Saver)</item>
+        <item>15 FPS (Balanced)</item>
+        <item>25 FPS (Smooth)</item>
+        <item>40 FPS (High)</item>
+        <item>60 FPS (Maximum)</item>
+        <item>Unlimited</item>
+    </string-array>
+    <string-array name="fps_values">
+        <item>1</item>
+        <item>5</item>
+        <item>15</item>
+        <item>25</item>
+        <item>40</item>
+        <item>60</item>
+        <item>0</item>
+    </string-array>
+    <string-array name="weather_provider_entries">
+        <item>WeatherAPI.com</item>
+        <item>MET Norway</item>
+        <item>Open-Meteo</item>
+        <item>OpenWeatherMap</item>
+    </string-array>
+    <string-array name="weather_provider_values">
+        <item>weatherapi</item>
+        <item>metno</item>
+        <item>openmeteo</item>
+        <item>openweathermap</item>
+    </string-array>
+
+    <!-- AOD Timeout values -->
+    <string-array name="aod_timeout_entries">
+        <item>5 seconds</item>
+        <item>10 seconds</item>
+        <item>15 seconds</item>
+        <item>20 seconds</item>
+        <item>30 seconds</item>
+        <item>45 seconds</item>
+        <item>60 seconds</item>
+    </string-array>
+    <string-array name="aod_timeout_values">
+        <item>5</item>
+        <item>10</item>
+        <item>15</item>
+        <item>20</item>
+        <item>30</item>
+        <item>45</item>
+        <item>60</item>
+    </string-array>
+
+    <!-- AOD Brightness values -->
+    <string-array name="aod_brightness_entries">
+        <item>1%</item>
+        <item>2%</item>
+        <item>3%</item>
+        <item>5%</item>
+        <item>10%</item>
+        <item>15%</item>
+        <item>20%</item>
+        <item>30%</item>
+    </string-array>
+    <string-array name="aod_brightness_values">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>5</item>
+        <item>10</item>
+        <item>15</item>
+        <item>20</item>
+        <item>30</item>
+    </string-array>
+
+    <!-- Ultra Battery Saver Password Type -->
+    <string-array name="ubs_password_type_entries">
+        <item>Keypad (3x3 grid)</item>
+        <item>Morse Code (short/long press)</item>
+    </string-array>
+    <string-array name="ubs_password_type_values">
+        <item>keypad</item>
+        <item>morse</item>
+    </string-array>
+
+    <!-- Update interval values for weather and health -->
+    <string-array name="update_interval_entries">
+        <item>1 minute</item>
+        <item>2 minutes</item>
+        <item>5 minutes</item>
+        <item>10 minutes</item>
+        <item>15 minutes</item>
+        <item>30 minutes</item>
+        <item>45 minutes</item>
+        <item>60 minutes</item>
+    </string-array>
+    <string-array name="update_interval_values">
+        <item>1</item>
+        <item>2</item>
+        <item>5</item>
+        <item>10</item>
+        <item>15</item>
+        <item>30</item>
+        <item>45</item>
+        <item>60</item>
+    </string-array>
+</resources>

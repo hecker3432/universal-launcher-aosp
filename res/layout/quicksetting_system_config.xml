@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="@android:color/black" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_centerVertical="true"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/notify_send_status" android:paddingTop="20.0dip" android:paddingBottom="10.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <LinearLayout android:orientation="horizontal" android:id="@id/notify_send_style" android:background="@drawable/notify_send_style_background" android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <ImageView android:id="@id/notify_send_style_1" android:focusable="true" android:clickable="true" android:layout_width="@dimen/switch_icon_size" android:layout_height="@dimen/switch_icon_size" android:src="@drawable/smart_watch_notify_send_style1_selected" android:contentDescription="@string/send_info_text1" />
+            <Space android:layout_width="30.0dip" android:layout_height="fill_parent" />
+            <ImageView android:id="@id/notify_send_style_2" android:focusable="true" android:clickable="true" android:layout_width="@dimen/switch_icon_size" android:layout_height="@dimen/switch_icon_size" android:src="@drawable/smart_watch_notify_send_style2" android:contentDescription="@string/send_info_text2" />
+        </LinearLayout>
+        <LinearLayout android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <TextView android:textSize="22.0dip" android:textColor="@android:color/darker_gray" android:gravity="center" android:id="@id/notify_send_status_text" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/send_info_text1" />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout android:gravity="center" android:orientation="horizontal" android:id="@id/system_func_settings" android:paddingTop="10.0dip" android:paddingBottom="10.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_below="@id/notify_send_status" android:paddingStart="10.0dip" android:paddingEnd="10.0dip">
+        <ImageView android:id="@id/system_screenon_guesture" android:focusable="true" android:clickable="true" android:layout_width="@dimen/switch_icon_size" android:layout_height="@dimen/switch_icon_size" android:src="@drawable/smart_watch_screenon_guesture_off" android:layout_weight="1.0" android:contentDescription="@string/screenon_guesture" />
+        <ImageView android:id="@id/system_airplane_mode" android:focusable="true" android:clickable="true" android:layout_width="@dimen/switch_icon_size" android:layout_height="@dimen/switch_icon_size" android:src="@drawable/smart_watch_airmode_off" android:layout_weight="1.0" android:contentDescription="@string/airplane_mode" />
+        <ImageView android:id="@id/mobile_data_settings" android:focusable="true" android:clickable="true" android:layout_width="@dimen/switch_icon_size" android:layout_height="@dimen/switch_icon_size" android:src="@drawable/smart_watch_mobile_data_off" android:layout_weight="1.0" android:contentDescription="@string/mobiledata_name" />
+        <ImageView android:id="@id/system_connected_device" android:focusable="true" android:clickable="true" android:layout_width="@dimen/switch_icon_size" android:layout_height="@dimen/switch_icon_size" android:src="@drawable/gps_off" android:layout_weight="1.0" android:contentDescription="@string/connected_device" />
+    </LinearLayout>
+    <LinearLayout android:gravity="center" android:orientation="horizontal" android:id="@id/wifi_blue" android:paddingTop="10.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_below="@id/system_func_settings" android:paddingStart="10.0dip" android:paddingEnd="10.0dip">
+        <ImageView android:id="@id/bright_but" android:layout_width="@dimen/switch_icon_size" android:layout_height="@dimen/switch_icon_size" android:layout_weight="1.0" />
+        <ImageView android:id="@id/bt_stat" android:layout_width="@dimen/switch_icon_size" android:layout_height="@dimen/switch_icon_size" android:layout_weight="1.0" />
+        <ImageView android:id="@id/wifi_status" android:layout_width="@dimen/switch_icon_size" android:layout_height="@dimen/switch_icon_size" android:layout_weight="1.0" />
+    </LinearLayout>
+</RelativeLayout>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:background="@color/black" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:paddingTop="@dimen/applist_padding_left" android:paddingBottom="@dimen/applist_padding_left" android:layout_width="fill_parent" android:layout_height="fill_parent" android:paddingStart="@dimen/applist_padding_left" android:paddingEnd="@dimen/applist_padding_left" style="@style/AppPreferenceTheme">
+        <Space android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="30.0dip" />
+        <RadioGroup android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content"
+          xmlns:android="http://schemas.android.com/apk/res/android">
+            <RadioButton android:id="@id/gender_male" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/male" />
+            <RadioButton android:id="@id/gender_female" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/female" />
+        </RadioGroup>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <TextView android:textSize="18.0sp" android:textColor="@color/white" android:gravity="center" android:id="@id/height" android:layout_width="wrap_content" android:layout_height="fill_parent" android:text="@string/bodyheight" />
+            <EditText android:textSize="18.0sp" android:textColor="@color/white" android:id="@id/heigth_text" android:layout_width="0.0dip" android:layout_height="fill_parent" android:digits="0,1,2,3,4,5,6,7,8,9" android:layout_weight="1.0" android:inputType="number" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <TextView android:textSize="18.0sp" android:textColor="@color/white" android:gravity="center" android:id="@id/weight" android:layout_width="wrap_content" android:layout_height="fill_parent" android:text="@string/bodyweight" />
+            <EditText android:textSize="18.0sp" android:textColor="@color/white" android:id="@id/weight_text" android:layout_width="0.0dip" android:layout_height="wrap_content" android:digits="0,1,2,3,4,5,6,7,8,9" android:layout_weight="1.0" android:inputType="number" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <TextView android:textSize="18.0sp" android:textColor="@color/white" android:gravity="center" android:id="@id/steptarget" android:layout_width="wrap_content" android:layout_height="fill_parent" android:text="@string/target_step_number" />
+            <EditText android:textSize="18.0sp" android:textColor="@color/white" android:id="@id/steptarget_text" android:layout_width="0.0dip" android:layout_height="wrap_content" android:digits="0,1,2,3,4,5,6,7,8,9" android:layout_weight="1.0" android:inputType="number" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0">
+            <Button android:textSize="18.0sp" android:textColor="@color/white" android:id="@id/cancel" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/cancel" android:layout_weight="1.0" />
+            <Button android:textSize="18.0sp" android:textColor="@color/white" android:id="@id/save" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/save" android:layout_weight="1.0" />
+        </LinearLayout>
+        <Space android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="30.0dip" />
+    </LinearLayout>
+</ScrollView>
